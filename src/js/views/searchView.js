@@ -11,6 +11,14 @@ export const clearResults = () => {
     elements.searchResPages.innerHTML = '';
 }
 
+export const highlightSelected = id => {
+    const arrResults = Array.from(document.querySelectorAll('.results__link'));
+
+    arrResults.forEach(el => el.classList.remove('results__link--active'));
+
+    document.querySelector(`a[href*="${id}"]`).classList.add('results__link--active');
+}
+
 export const limitResultTitle = (title, limit=17) => {
     const newTitle = [];
     
