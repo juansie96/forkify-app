@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {proxy} from '../config'
-import { elements } from '../views/base';
 
 export default class Recipe {
     constructor(id) {
