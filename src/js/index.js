@@ -10,8 +10,7 @@ import * as likesView from './views/likesView';
 import {elements,renderLoader,clearLoader} from './views/base';
 
 
-const state = {};
-window.state = state;
+const state = {}; 
 
 /* 
 ------------- SEARCH CONTROLLER -------------
@@ -84,7 +83,6 @@ const controlRecipe = async () => {
         try {
             // Get recipe data
             await state.recipe.getRecipe();
-            console.log(state.recipe.ingredients);
             state.recipe.parseIngredients();
     
             // Calculate time and servings
