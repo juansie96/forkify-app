@@ -140,9 +140,6 @@ elements.shoppingList.addEventListener('click', e => {
 ------------- LIKES CONTROLLER -------------
 */
 
-state.likes = new Likes();
-likesView.toggleLikesMenu(state.likes.getNumLikes());
-
 const controlLike = () => {          
     if (!state.likes) state.likes = new Likes();
 
@@ -178,6 +175,22 @@ const controlLike = () => {
 
 ['hashchange','load'].forEach(event => window.addEventListener(event, controlRecipe));
 
+
+window.addEventListener('load', () => {
+
+    // Create new likes object
+    state.likes = new Likes();
+
+    //  Restore likes
+    state.likes.readStorage();
+
+    // Toggle likes menu button
+    likesView.toggleLikesMenu(state.likes.getNumLikes());
+
+    // Render the likes
+    state.likes.likes.forEach(like => likesView.renderLike(like));
+
+})
 // Handling recipe button clicks
 
  elements.recipe.addEventListener('click', e => {
